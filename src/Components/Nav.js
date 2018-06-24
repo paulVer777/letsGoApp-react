@@ -7,6 +7,7 @@ const Nav = () => (
     <div className='nav'>
         <NavLink to={'/'} activeStyle={{fontWeight: 'bold'}}><Button variant={"outlined"}>Events</Button></NavLink>
         <NavLink to={'/log'} activeStyle={{fontWeight: 'bold'}}><Button variant={"outlined"}>Log in</Button></NavLink>
+        <NavLink to={'/addConcert'} activeStyle={{fontWeight: 'bold'}}><Button variant={"outlined"}>add concert</Button></NavLink>
     </div>
 )
 

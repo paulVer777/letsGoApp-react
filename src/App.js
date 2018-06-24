@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Events from './Components/Concerts'
 import Nav from './Components/Nav'
 import Details from './Components/Details'
+import AddConcert from './Components/AddConcert'
 
 class App extends Component {
 
@@ -18,6 +19,7 @@ class App extends Component {
 
                         <Route exact path={'/'} component={Events}/>
                         <Route path={'/details'} component={Details}/>
+                        <Route path={'/addConcert'} component={AddConcert}/>
 
 
                     </div>

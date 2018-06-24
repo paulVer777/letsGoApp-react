@@ -1,26 +1,25 @@
 
-const ONINTPUTHANDLER='addEvent/ONINPUTHANDLER';
+const ONINTPUTHANDLER = 'addEvent/ONINPUTHANDLER';
 
-export const onInputHandler=(txt,place)=>({type:ONINTPUTHANDLER,event,place});
+export const onInputHandler = (txt, place) => ({type: ONINTPUTHANDLER, txt, place});
 
-const initialState={
+const initialState = {
 
-    artist:"",
-    city:"",
-    date:"",
-    price:"",
-    description:""
+    artist: "",
+    city: "",
+    date: "",
+    price: "",
+    description: ""
 };
 
-export default (state=initialState,action)=>{
+export default (state = initialState, action) => {
     switch (action.type) {
         case ONINTPUTHANDLER:
             return {
-
-
-
-
-            }
-
+                ...state,
+                [action.place]: action.txt
+            };
+        default:
+            return state
     }
 }
