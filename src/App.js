@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
-import Events from './Components/Events'
+import Events from './Components/Concerts'
 import Nav from './Components/Nav'
 import Details from './Components/Details'
 

@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 
-const Events = () => (
+const Concerts = () => (
 
     <div>
         <h1>Events</h1>
@@ -18,4 +18,4 @@ const mapStateToProps = (state) => ({})
 const mapDispatchToProps = (dispatch) => ({})
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Events)
+export default connect(mapStateToProps, mapDispatchToProps)(Concerts)
