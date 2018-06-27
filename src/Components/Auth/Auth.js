@@ -1,14 +1,15 @@
 import React from 'react'
 import {connect} from "react-redux";
 import LogInByGoogle from './LogInByGoogle'
-
+import {logInByGoogle} from "../../state/auth";
+import UserAccount from '../UserAccount'
 
 const Auth = (props)=>(
 
     <div>
         {
-            isUserLoggedIn ?
-                props.children
+            props.isUserLoggedIn ?
+               <UserAccount/>
             :
                 <LogInByGoogle runLog={props.googleAuth}/>
         }
@@ -16,12 +17,16 @@ const Auth = (props)=>(
 
 );
 
+const mapStateToProps = (state) => ({
 
-const mapStateToProps = (state) => ({});
-
-const mapDispatchToProps = (dispatch) => ({
+    isUserLoggedIn:state.auth.isUserLoggedIn
 
 });
 
+const mapDispatchToProps = (dispatch) => ({
+
+    googleAuth:()=>dispatch(logInByGoogle())
+
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Auth)

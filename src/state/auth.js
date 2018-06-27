@@ -1,8 +1,28 @@
+import {googleProvider,auth} from "../firebase";
+
+
 const LOGGEDIN = 'auth/LOGGEDIN';
 const LOGGEDOUT = 'auth/LOGGEDOUT';
 
 const loggedIn= (user)=>({type:LOGGEDIN,user});
-const loggedOut= (user)=>({type:LOGGEDOUT});
+export const loggedOut= ()=>({type:LOGGEDOUT});
+
+
+export const logInByGoogle = ()=> (dispatch,getState)=> (
+    auth.signInWithRedirect(googleProvider)
+);
+
+export const initAuthUserSync = () => (dispatch, getState) => {
+    auth.onAuthStateChanged(
+        user => {
+            if (user) {
+                dispatch(loggedIn(user))
+            }
+            else
+                dispatch(loggedOut())
+        }
+    )
+};
 
 const initialState = {
 
@@ -20,6 +40,8 @@ export default (state = initialState, action) => {
             return {
                 isUserLoggedIn: false,
                 user: null
-            }
+            };
+        default:
+                return state
     }
 }
