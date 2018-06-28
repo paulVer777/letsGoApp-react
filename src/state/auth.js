@@ -1,5 +1,5 @@
 import {googleProvider,auth} from "../firebase";
-
+import {getUserConcerts} from "./concerts";
 
 const LOGGEDIN = 'auth/LOGGEDIN';
 const LOGGEDOUT = 'auth/LOGGEDOUT';
@@ -16,7 +16,8 @@ export const initAuthUserSync = () => (dispatch, getState) => {
     auth.onAuthStateChanged(
         user => {
             if (user) {
-                dispatch(loggedIn(user))
+                dispatch(loggedIn(user));
+                dispatch(getUserConcerts())
             }
             else
                 dispatch(loggedOut())

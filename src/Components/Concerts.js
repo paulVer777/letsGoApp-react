@@ -13,13 +13,12 @@ const Concerts = (props) => (
 
     <div>
 
-        <h1 className='concerts__h1 text-center'>LetsGoApp</h1>
+        <h1 className='concerts__h1 text-center'>Let'sGoApp</h1>
 
         <div className='d'>
 
             {
-                props.concerts.map((value,index) =>
-
+                props.concerts.map((value, index) =>
 
                     <Card className='cardStyle'>
                         <CardMedia
@@ -28,7 +27,10 @@ const Concerts = (props) => (
                             className='cardMediaStyle'
                         />
                         <CardContent className='cardParagraphStyle'>
-                            <Typography gutterBottom variant="headline" component="h2">
+                            <Typography gutterBottom variant="headline" component="h2"
+                                        noWrap={true}
+                                        color={"primary"}
+                            >
                                 {value.artist}
                             </Typography>
                             <Typography gutterBottom variant='subheading'>
@@ -39,9 +41,8 @@ const Concerts = (props) => (
                             </Typography>
                         </CardContent>
                         <CardActions className='icons'>
-                            <NavLink to={`details/${index}`} ><Button size="small" color="primary">Read more</Button>
+                            <NavLink to={`details/${index}`}><Button size="small" color="primary">Read more</Button>
                             </NavLink>
-
                         </CardActions>
                     </Card>
                 )

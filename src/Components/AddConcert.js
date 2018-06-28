@@ -14,25 +14,25 @@ const AddConcert = (props) => (
             onChange={props.onInput}
             name={'artist'}
             placeholder={'Artist'}
-            fullWidth={'true'}
+            fullWidth={true}
         />
         <TextField
             onChange={props.onInput}
             name={'city'}
             placeholder={'City'}
-            fullWidth={'true'}
+            fullWidth={true}
         />
         <TextField
             onChange={props.onInput}
             name={'date'}
             placeholder={'Date'}
-            fullWidth={'true'}
+            fullWidth={true}
         />
         <TextField
             onChange={props.onInput}
             name={'price'}
             placeholder={'Price for tickets'}
-            fullWidth={'true'}
+            fullWidth={true}
         />
         <TextField
             onChange={props.onInput}
@@ -40,35 +40,30 @@ const AddConcert = (props) => (
             placeholder={'Description'}
             multiline={true}
             rows={5}
-            fullWidth={'true'}
+            fullWidth={true}
             className='mb-5'
         />
         <TextField type='file'
                    onChange={props.takeFile}
-                   fullWidth={'true'}
+                   fullWidth={true}
         />
-
-
         {
-        props.photo ?
-            <Button onClick={props.send}
-                    variant={"contained"}
-                    fullWidth={'true'}
-                    className='mt-2'
-            >Upload photo</Button>
-            :
-            <Button onClick={props.send}
-                    variant={"contained"}
-                    style={{display:'none'}}
-                    fullWidth={'true'}
-            >Upload photo</Button>
+            props.photo ?
+                <Button onClick={props.send}
+                        variant={"contained"}
+                        fullWidth={true}
+                        className='mt-2'
+                >Upload photo</Button>
+                :
+                <p className='text-center'> Choose a photo</p>
+
         }
 
 
         <Button
             variant={"contained"}
             onClick={props.addConcert}
-            fullWidth={'true'}
+            fullWidth={true}
             className='mt-5'
         >Add Concert
         </Button>
@@ -79,7 +74,7 @@ const AddConcert = (props) => (
 
 const mapStateToProps = (state) => ({
 
-    photo:state.addConcert.img
+    photo: state.addConcert.img
 
 
 });
