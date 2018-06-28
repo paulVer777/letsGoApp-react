@@ -1,47 +1,77 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import TextField from '@material-ui/core/TextField';
-import {onInputHandler,sendConcertToDb,onInputFileHandler,sendImgToDatabase} from "../state/addConcert";
+import {onInputHandler, sendConcertToDb, onInputFileHandler, sendImgToDatabase} from "../state/addConcert";
 import Button from '@material-ui/core/Button';
 
 
 const AddConcert = (props) => (
 
-    <div>
+    <div className='addConcert__form'>
+
+
         <TextField
             onChange={props.onInput}
             name={'artist'}
             placeholder={'Artist'}
+            fullWidth={'true'}
         />
         <TextField
             onChange={props.onInput}
             name={'city'}
             placeholder={'City'}
+            fullWidth={'true'}
         />
         <TextField
             onChange={props.onInput}
             name={'date'}
             placeholder={'Date'}
+            fullWidth={'true'}
         />
         <TextField
             onChange={props.onInput}
             name={'price'}
-            placeholder={'price for tickets'}
+            placeholder={'Price for tickets'}
+            fullWidth={'true'}
         />
         <TextField
             onChange={props.onInput}
             name={'description'}
-            placeholder={'description'}
+            placeholder={'Description'}
             multiline={true}
-            rows={10}
+            rows={5}
+            fullWidth={'true'}
+            className='mb-5'
         />
-        <input type='file' onChange={props.takeFile}/>
+        <TextField type='file'
+                   onChange={props.takeFile}
+                   fullWidth={'true'}
+        />
+
+
+        {
+        props.photo ?
+            <Button onClick={props.send}
+                    variant={"contained"}
+                    fullWidth={'true'}
+                    className='mt-2'
+            >Upload photo</Button>
+            :
+            <Button onClick={props.send}
+                    variant={"contained"}
+                    style={{display:'none'}}
+                    fullWidth={'true'}
+            >Upload photo</Button>
+        }
+
+
         <Button
             variant={"contained"}
             onClick={props.addConcert}
+            fullWidth={'true'}
+            className='mt-5'
         >Add Concert
         </Button>
-<button onClick={props.send}>send</button>
 
 
     </div>
@@ -49,16 +79,17 @@ const AddConcert = (props) => (
 
 const mapStateToProps = (state) => ({
 
+    photo:state.addConcert.img
 
 
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
 
     onInput: (event) => dispatch(onInputHandler(event.target.value, event.target.name)),
-    addConcert:()=> dispatch(sendConcertToDb()),
-    takeFile:(event)=>dispatch(onInputFileHandler(event.target.files[0])),
-    send:()=>dispatch(sendImgToDatabase())
+    addConcert: () => dispatch(sendConcertToDb()),
+    takeFile: (event) => dispatch(onInputFileHandler(event.target.files[0])),
+    send: () => dispatch(sendImgToDatabase())
 });
 
 

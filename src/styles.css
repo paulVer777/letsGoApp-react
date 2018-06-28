@@ -6,3 +6,38 @@
     text-decoration: none;
 }
 
+.cardMediaStyle
+{
+    height:200px;
+
+}
+
+.cardStyle{
+    min-width:300px;
+    max-width: 300px;
+    min-height: 380px;
+    max-height:380px;
+    margin: 10px;
+}
+
+.d{
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.concerts__h1
+{
+    font-family: 'Faster One', cursive;
+}
+
+.addConcert__form
+{
+    width: 60%;
+    margin: auto;
+
+}

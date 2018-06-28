@@ -7,7 +7,7 @@ import AddConcert from './AddConcert'
 const UserAccount= (props)=>(
 
     <div>
-   <h1>Konto użytkownika</h1>
+   <h1 className='text-center mb-5 mt-1'>Hello {props.userName} !</h1>
         <AddConcert/>
         <hr/>
     </div>
@@ -16,7 +16,7 @@ const UserAccount= (props)=>(
 
 const mapStateToProps = (state) => ({
 
-
+userName:state.auth.user.displayName
 
 });
 
