@@ -4,13 +4,12 @@ import {database, storageRef} from "../firebase";
 const ONINTPUTHANDLER = 'addEvent/ONINPUTHANDLER';
 const ONINPUTFILEHANDLER = 'addEvent/ONINPUTFILEHANDLER';
 const SAVEURL = 'addEvent/SAVEURL';
-const CLEARSTATE='addConcert/CLEARSTATE';
-
+const CLEARSTATE = 'addConcert/CLEARSTATE';
 
 
 export const onInputHandler = (txt, place) => ({type: ONINTPUTHANDLER, txt, place});
 export const onInputFileHandler = (file) => ({type: ONINPUTFILEHANDLER, file});
-export const clearState=()=>({type:CLEARSTATE});
+export const clearState = () => ({type: CLEARSTATE});
 
 const saveUrl = (url) => ({type: SAVEURL, url});
 
@@ -19,7 +18,7 @@ export const sendImgToDatabase = () => (dispatch, getState) => {
     const state = getState();
     const name = state.addConcert.img.name;
 
-    storageRef.ref(name).put(state.addConcert.img).then(snapshot => console.log(snapshot))
+     storageRef.ref(name).put(state.addConcert.img).then(snapshot => console.log(snapshot))
         .then(() => (
             storageRef.ref(name).getDownloadURL().then(response => dispatch(saveUrl(response))
             )
@@ -29,16 +28,7 @@ export const sendImgToDatabase = () => (dispatch, getState) => {
 export const sendConcertToDb = () => (dispatch, getState) => {
     const state = getState();
     const userUid = state.auth.user.uid;
-    database.ref('/Users/' + userUid + '/Concerts').push(
-        {
-            artist: state.addConcert.artist,
-            city: state.addConcert.city,
-            date: state.addConcert.date,
-            price: state.addConcert.price,
-            description: state.addConcert.description,
-            url:state.addConcert.url
-        }
-    );
+
     database.ref('/Concerts/').push(
         {
             artist: state.addConcert.artist,
@@ -46,11 +36,11 @@ export const sendConcertToDb = () => (dispatch, getState) => {
             date: state.addConcert.date,
             price: state.addConcert.price,
             description: state.addConcert.description,
-            url:state.addConcert.url,
-            id:userUid
+            url: state.addConcert.url,
+            id: userUid
         }
     );
-  dispatch(clearState())
+    dispatch(clearState())
 };
 const initialState = {
 
