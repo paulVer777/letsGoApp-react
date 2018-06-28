@@ -12,18 +12,14 @@ import Button from '@material-ui/core/Button';
 const Concerts = (props) => (
 
     <div>
-
         <h1 className='concerts__h1 text-center'>Let'sGoApp</h1>
-
         <div className='d'>
-
             {
                 props.concerts.map((value, index) =>
 
                     <Card className='cardStyle'>
                         <CardMedia
                             image={value.url}
-                            src={value.url}
                             className='cardMediaStyle'
                         />
                         <CardContent className='cardParagraphStyle'>
@@ -46,18 +42,15 @@ const Concerts = (props) => (
                         </CardActions>
                     </Card>
                 )
-
-
             }
-
         </div>
     </div>
 );
 const mapStateToProps = (state) => ({
-
     concerts: state.concerts.concerts
 });
-const mapDispatchToProps = (dispatch) => ({})
+const mapDispatchToProps = (dispatch) => ({
 
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Concerts)

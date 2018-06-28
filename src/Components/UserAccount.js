@@ -23,9 +23,7 @@ const UserAccount = (props) => (
                         </ListItemIcon>
                         </MenuItem>
 
-
                 )}
-
     </div>
 
 );

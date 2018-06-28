@@ -4,11 +4,9 @@ import TextField from '@material-ui/core/TextField';
 import {onInputHandler, sendConcertToDb, onInputFileHandler, sendImgToDatabase} from "../state/addConcert";
 import Button from '@material-ui/core/Button';
 
-
 const AddConcert = (props) => (
 
     <div className='addConcert__form'>
-
 
         <TextField
             onChange={props.onInput}
@@ -58,8 +56,6 @@ const AddConcert = (props) => (
                 <p className='text-center'> Choose a photo</p>
 
         }
-
-
         <Button
             variant={"contained"}
             onClick={props.addConcert}
@@ -86,7 +82,6 @@ const mapDispatchToProps = (dispatch) => ({
     takeFile: (event) => dispatch(onInputFileHandler(event.target.files[0])),
     send: () => dispatch(sendImgToDatabase())
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddConcert)
 
