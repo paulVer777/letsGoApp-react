@@ -14,9 +14,10 @@ const UserAccount = (props) => (
     <div>
         <hr/>
         <h2 className='text-center mb-5 mt-5'>Hello {props.userName} !<Button
-            variant={"outlined"}
+            variant={"contained"}
             onClick={props.logOut}
             className='ml-3'
+            color={"secondary"}
         >Log Out</Button></h2>
         <hr className='mb-5'/>
 

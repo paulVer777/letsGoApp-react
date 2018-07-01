@@ -2,15 +2,17 @@ import {database} from "../firebase";
 import {mapObjectToArray} from "../functions_extra";
 
 const PUTCONCERTSTOSTATE = 'concerts/PUTCONCERTSTOSTATE';
+const ONINPUTHANDLER = 'concerts/ONINPUTHANDLER';
 
 const putConcertsToState = (concerts) => ({type: PUTCONCERTSTOSTATE, concerts});
+export const onInputHandler = (txt) => ({type: ONINPUTHANDLER, txt});
 
 const initialState = {
     concerts: [],
-    userConcerts: []
+    filter: ""
 };
 
-export const removeConcert=(id)=>(dispatch,getState)=>{
+export const removeConcert = (id) => (dispatch, getState) => {
     database.ref(`/Concerts/${id}`).remove()
 };
 
@@ -27,6 +29,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 concerts: action.concerts
+            };
+        case ONINPUTHANDLER:
+            return {
+                ...state,
+                filter: action.txt
             };
         default:
             return state

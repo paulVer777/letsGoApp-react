@@ -54,6 +54,7 @@ const AddConcert = (props) => (
                         variant={"contained"}
                         fullWidth={true}
                         className='mt-2'
+                        color='primary'
                 >Upload photo</Button>
                 :
                 <p className='text-center'> Choose a photo</p>
@@ -64,6 +65,7 @@ const AddConcert = (props) => (
             onClick={props.addConcert}
             fullWidth={true}
             className='mt-5'
+            color='primary'
         >Add Concert
         </Button>
 

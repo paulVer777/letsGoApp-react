@@ -12,7 +12,7 @@ const Details = (props) => (
 
                     <div className='mt-5'>
                         <div className='d-flex justify-content-center'>
-                            <img src={value.url} className='mb-5' width='200' height='200'/>
+                            <img src={value.url} className='mb-5' width='300' height='200'/>
                         </div>
                         <Paper className='pl-2'>
                             <p><strong>Artist</strong>: {value.artist}</p>

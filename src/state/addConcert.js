@@ -18,7 +18,7 @@ export const sendImgToDatabase = () => (dispatch, getState) => {
     const state = getState();
     const name = state.addConcert.img.name;
 
-     storageRef.ref(name).put(state.addConcert.img).then(snapshot => console.log(snapshot))
+     storageRef.ref(name).put(state.addConcert.img).then(snapshot => alert('Photo succesfully uploaded'))
         .then(() => (
             storageRef.ref(name).getDownloadURL().then(response => dispatch(saveUrl(response))
             )
@@ -46,7 +46,7 @@ export const sendConcertToDb = () => (dispatch, getState) => {
         );
         dispatch(clearState())
     }
-        else alert("Please fill all empty fields before add new concert")
+        else alert("Please fill all empty fields and click 'upload a photo' before add new concert")
 };
 const initialState = {
 

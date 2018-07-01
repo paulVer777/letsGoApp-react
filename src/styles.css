@@ -19,7 +19,8 @@
     margin: 10px;
 }
 
-.d {
+.concerts__cards-wrapper
+{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -31,7 +32,6 @@
 
 .concerts__h1 {
     font-family: 'Permanent Marker', cursive;
-
 }
 
 .addConcert__form {
@@ -42,14 +42,13 @@
 }
 
 a {
-    text-decoration: none !important
+    text-decoration: none !important;
 
 }
 
 body
 {
     font-family: 'Ubuntu', sans-serif;
-
 }
 
 .loginByGoogle_button
@@ -59,9 +58,9 @@ body
 
 }
 
-.s
+.concerts__textfilter
 {
-    background-color: #ed5746;
-
+   width: 50%;
+margin: auto;
 
 }

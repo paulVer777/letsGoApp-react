@@ -6,9 +6,12 @@ import {NavLink} from 'react-router-dom'
 
 const Nav = (props) => (
     <div className='nav'>
-        <NavLink to={'/'}><Button variant={"outlined"}>Events</Button></NavLink>
-        <NavLink to={'/auth'}><Button variant={"outlined"}
-        className='mr-3'
+        <NavLink to={'/'}><Button variant={"contained"} color={"primary"}
+        className='mr-3 mt-2'
+        >Events</Button></NavLink>
+
+        <NavLink to={'/auth'}><Button variant={"contained"} color={"primary"}
+        className='mr-3 mt-2'
 
         >My account</Button></NavLink>
     </div>
