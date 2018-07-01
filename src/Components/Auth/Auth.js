@@ -4,12 +4,13 @@ import LogInByGoogle from './LogInByGoogle'
 import {logInByGoogle} from "../../state/auth";
 import UserAccount from '../UserAccount'
 
+
 const Auth = (props)=>(
 
     <div>
         {
             props.isUserLoggedIn ?
-               <UserAccount/>
+               props.children
             :
                 <LogInByGoogle runLog={props.googleAuth}/>
         }

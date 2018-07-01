@@ -13,7 +13,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Router>
+                <Router basename={process.env.PUBLIC_URL}>
                     <div>
                         <Nav/>
                         <Route exact path={'/'} component={Events}/>
