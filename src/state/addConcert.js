@@ -28,19 +28,25 @@ export const sendImgToDatabase = () => (dispatch, getState) => {
 export const sendConcertToDb = () => (dispatch, getState) => {
     const state = getState();
     const userUid = state.auth.user.uid;
+    const addConcert=state.addConcert;
 
-    database.ref('/Concerts/').push(
-        {
-            artist: state.addConcert.artist,
-            city: state.addConcert.city,
-            date: state.addConcert.date,
-            price: state.addConcert.price,
-            description: state.addConcert.description,
-            url: state.addConcert.url,
-            id: userUid
-        }
-    );
-    dispatch(clearState())
+    if(addConcert.artist && addConcert.city && addConcert.date && addConcert.price && addConcert.description
+    && addConcert.url)
+    {
+        database.ref('/Concerts/').push(
+            {
+                artist: state.addConcert.artist,
+                city: state.addConcert.city,
+                date: state.addConcert.date,
+                price: state.addConcert.price,
+                description: state.addConcert.description,
+                url: state.addConcert.url,
+                id: userUid
+            }
+        );
+        dispatch(clearState())
+    }
+        else alert("Please fill all empty fields before add new concert")
 };
 const initialState = {
 

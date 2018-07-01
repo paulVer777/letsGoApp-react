@@ -12,7 +12,9 @@ import Button from '@material-ui/core/Button';
 const Concerts = (props) => (
 
     <div>
-        <h1 className='concerts__h1 text-center'>Let'sGoApp</h1>
+        <hr/>
+        <h1 className='concerts__h1 text-center mt-5 mb-5'>Let's Go App</h1>
+        <hr/>
         <div className='d'>
             {
                 props.concerts.map((value, index) =>
@@ -29,10 +31,18 @@ const Concerts = (props) => (
                             >
                                 {value.artist}
                             </Typography>
-                            <Typography gutterBottom variant='subheading'>
+                            <Typography
+                                gutterBottom variant='subheading'
+                                noWrap={true}
+                            >
                                 {value.date}
                             </Typography>
-                            <Typography className='cardParagraphStyle' component="p">
+                            <Typography
+                                className='cardParagraphStyle'
+                                component="p"
+                                noWrap={true}
+
+                            >
                                 {value.description}
                             </Typography>
                         </CardContent>
@@ -49,8 +59,6 @@ const Concerts = (props) => (
 const mapStateToProps = (state) => ({
     concerts: state.concerts.concerts
 });
-const mapDispatchToProps = (dispatch) => ({
-
-});
+const mapDispatchToProps = (dispatch) => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Concerts)

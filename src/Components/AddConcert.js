@@ -6,6 +6,9 @@ import Button from '@material-ui/core/Button';
 
 const AddConcert = (props) => (
 
+    <div>
+        <h3 className='text-center'>Add new concert</h3>
+
     <div className='addConcert__form'>
 
         <TextField
@@ -64,17 +67,12 @@ const AddConcert = (props) => (
         >Add Concert
         </Button>
 
-
+    </div>
     </div>
 );
-
 const mapStateToProps = (state) => ({
-
     photo: state.addConcert.img
-
-
 });
-
 const mapDispatchToProps = (dispatch) => ({
 
     onInput: (event) => dispatch(onInputHandler(event.target.value, event.target.name)),
@@ -82,6 +80,5 @@ const mapDispatchToProps = (dispatch) => ({
     takeFile: (event) => dispatch(onInputFileHandler(event.target.files[0])),
     send: () => dispatch(sendImgToDatabase())
 });
-
 export default connect(mapStateToProps, mapDispatchToProps)(AddConcert)
 

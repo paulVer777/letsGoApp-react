@@ -1,28 +1,27 @@
 
-.nav{
+.nav {
 
     display: flex;
     justify-content: flex-end;
     text-decoration: none;
 }
 
-.cardMediaStyle
-{
-    height:200px;
+.cardMediaStyle {
+    height: 200px;
 
 }
 
-.cardStyle{
-    min-width:300px;
+.cardStyle {
+    min-width: 300px;
     max-width: 300px;
     min-height: 380px;
-    max-height:380px;
+    max-height: 380px;
     margin: 10px;
 }
 
-.d{
+.d {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     flex-wrap: wrap;
     width: 90%;
     margin-top: 30px;
@@ -30,15 +29,39 @@
     margin-right: auto;
 }
 
-.concerts__h1
-{
-    font-family: 'Faster One', cursive;
-    color:darkorange;
+.concerts__h1 {
+    font-family: 'Permanent Marker', cursive;
+
 }
 
-.addConcert__form
-{
+.addConcert__form {
     width: 60%;
     margin: auto;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none !important
+
+}
+
+body
+{
+    font-family: 'Ubuntu', sans-serif;
+
+}
+
+.loginByGoogle_button
+{
+    position: relative;
+    top:30vh;
+
+}
+
+.s
+{
+    background-color: #ed5746;
+
 
 }
