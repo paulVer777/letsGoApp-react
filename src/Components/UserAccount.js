@@ -10,6 +10,8 @@ import {loggedOut} from "../state/auth";
 import {dialogHandler} from "../state/concerts";
 import Dialog from './DialogEdit'
 import EditIcon from '@material-ui/icons/Edit';
+import Tooltip from '@material-ui/core/Tooltip';
+
 
 const UserAccount = (props) => (
 
@@ -36,12 +38,15 @@ const UserAccount = (props) => (
 
                         <MenuItem>{value.artist}
 
-                            <div className='d-flex justify-content-end w-100'>
+                            <div className='d-flex justify-content-end w-100 mr-4'>
+                               <Tooltip title={'Remove'} placement={"left-start"}>
                                 <ListItemIcon>
                                     <DeleteIcon onClick={() => props.removeConcert(value.key)}/>
-
                                 </ListItemIcon>
+                               </Tooltip>
+                                <Tooltip title={'Edit'} placement={"right-start"}>
                                 <ListItemIcon><EditIcon onClick={() => props.open(value.key)}/></ListItemIcon>
+                                </Tooltip>
                             </div>
                         </MenuItem>
                     )}
