@@ -35,7 +35,7 @@
 }
 
 .addConcert__form {
-    width: 60%;
+    width: 80%;
     margin: auto;
     padding: 40px;
     box-sizing: border-box;
@@ -60,7 +60,8 @@ body
 
 .concerts__textfilter
 {
-   width: 50%;
+   width: 80%;
 margin: auto;
 
 }
+

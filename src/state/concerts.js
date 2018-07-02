@@ -26,8 +26,6 @@ const initialState = {
         description: "",
     }
 };
-
-
 export const editConcert = () => (dispatch, getState) => {
     const state = getState();
     const id = state.concerts.edited;
@@ -42,7 +40,6 @@ export const editConcert = () => (dispatch, getState) => {
     else alert("Please fill all empty fields")
 
 };
-
 export const removeConcert = (id) => (dispatch, getState) => {
     database.ref(`/Concerts/${id}`).remove()
 };
@@ -53,7 +50,6 @@ export const getConcertsFromDb = () => (dispatch, getState) => {
         (snapshot) => dispatch(putConcertsToState(mapObjectToArray(snapshot.val())))
     )
 };
-
 export default (state = initialState, action) => {
     switch (action.type) {
         case PUTCONCERTSTOSTATE:

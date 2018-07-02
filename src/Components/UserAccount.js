@@ -34,12 +34,15 @@ const UserAccount = (props) => (
                 props.concerts.filter((value, index) => value.id === props.userUid)
                     .map((value, index) =>
 
-                        <MenuItem className='d-flex justify-content-between'>{value.artist} <ListItemIcon>
-                            <DeleteIcon onClick={() => props.removeConcert(value.key)}/>
+                        <MenuItem>{value.artist}
 
-                        </ListItemIcon>
-                            <ListItemIcon><EditIcon onClick={()=>props.open(value.key)}/></ListItemIcon>
+                            <div className='d-flex justify-content-end w-100'>
+                                <ListItemIcon>
+                                    <DeleteIcon onClick={() => props.removeConcert(value.key)}/>
 
+                                </ListItemIcon>
+                                <ListItemIcon><EditIcon onClick={() => props.open(value.key)}/></ListItemIcon>
+                            </div>
                         </MenuItem>
                     )}
         </div>
@@ -61,7 +64,6 @@ const mapDispatchToProps = (dispatch) => ({
     removeConcert: (id) => dispatch(removeConcert(id)),
     logOut: () => dispatch(loggedOut()),
     open: (key) => dispatch(dialogHandler(key))
-
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserAccount)

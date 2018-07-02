@@ -12,8 +12,6 @@ import {dialogsInputHandler, editConcert} from "../state/concerts";
 
 
 const DialogEdit = (props) => (
-
-
     <div>
         <Dialog
             open={props.opens}
@@ -83,20 +81,15 @@ const DialogEdit = (props) => (
 
 
 );
-
-
 const mapStateToProps = (state) => ({
 
     opens: state.concerts.dialog
 
 });
-
-
 const mapDispatchToProps = (dispatch) => ({
 
     openOrClose: () => dispatch(dialogHandler()),
     inputHandler: (event) => dispatch(dialogsInputHandler(event.target.value, event.target.name)),
     edit: () => dispatch(editConcert())
 });
-
 export default connect(mapStateToProps, mapDispatchToProps)(DialogEdit)
