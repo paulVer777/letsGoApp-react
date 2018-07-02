@@ -7,7 +7,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {removeConcert} from "../state/concerts";
 import {loggedOut} from "../state/auth";
-
+import {dialogHandler} from "../state/concerts";
+import Dialog from './DialogEdit'
+import EditIcon from '@material-ui/icons/Edit';
 
 const UserAccount = (props) => (
 
@@ -27,18 +29,21 @@ const UserAccount = (props) => (
 
         <h3 className='mb-5 mt-5 text-center'>Your concerts</h3>
 
-            <div className='addConcert__form'>
-                {
-                    props.concerts.filter((value, index) => value.id === props.userUid)
-                        .map((value, index) =>
+        <div className='addConcert__form'>
+            {
+                props.concerts.filter((value, index) => value.id === props.userUid)
+                    .map((value, index) =>
 
-                            <MenuItem className='d-flex justify-content-between'>{value.artist} <ListItemIcon>
-                                <DeleteIcon onClick={() => props.removeConcert(value.key)}/>
-                            </ListItemIcon>
-                            </MenuItem>
-                        )}
-            </div>
+                        <MenuItem className='d-flex justify-content-between'>{value.artist} <ListItemIcon>
+                            <DeleteIcon onClick={() => props.removeConcert(value.key)}/>
 
+                        </ListItemIcon>
+                            <ListItemIcon><EditIcon onClick={()=>props.open(value.key)}/></ListItemIcon>
+
+                        </MenuItem>
+                    )}
+        </div>
+        <Dialog/>
 
     </div>
 
@@ -54,8 +59,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
 
     removeConcert: (id) => dispatch(removeConcert(id)),
-    logOut: () => dispatch(loggedOut())
-
+    logOut: () => dispatch(loggedOut()),
+    open: (key) => dispatch(dialogHandler(key))
 
 });
 

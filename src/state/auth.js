@@ -17,6 +17,7 @@ export const initAuthUserSync = () => (dispatch, getState) => {
         user => {
             if (user) {
                 dispatch(loggedIn(user));
+
             }
             else
                 dispatch(loggedOut())

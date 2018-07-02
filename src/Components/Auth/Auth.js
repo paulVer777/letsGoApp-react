@@ -10,7 +10,7 @@ const Auth = (props)=>(
     <div>
         {
             props.isUserLoggedIn ?
-               props.children
+              <UserAccount/>
             :
                 <LogInByGoogle runLog={props.googleAuth}/>
         }

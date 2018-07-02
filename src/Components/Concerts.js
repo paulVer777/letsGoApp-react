@@ -16,13 +16,13 @@ const Concerts = (props) => (
         <hr/>
         <h1 className='concerts__h1 text-center mt-5 mb-5'>Let's Go App</h1>
         <hr/>
-       <div className='concerts__textfilter'>
-        <TextField
-            fullWidth={true}
-            placeholder='Find concert by name of artist'
-            onChange={props.filtered}
-        />
-       </div>
+        <div className='concerts__textfilter'>
+            <TextField
+                fullWidth={true}
+                placeholder='Find concert by name of artist'
+                onChange={props.filtered}
+            />
+        </div>
         <hr/>
         <div className='concerts__cards-wrapper'>
             {
