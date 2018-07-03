@@ -45,7 +45,7 @@ const UserAccount = (props) => (
                                 </ListItemIcon>
                                </Tooltip>
                                 <Tooltip title={'Edit'} placement={"right-start"}>
-                                <ListItemIcon><EditIcon onClick={() => props.open(value.key)}/></ListItemIcon>
+                                <ListItemIcon><EditIcon onClick={() => props.open(value.key,value)}/></ListItemIcon>
                                 </Tooltip>
                             </div>
                         </MenuItem>
@@ -68,7 +68,10 @@ const mapDispatchToProps = (dispatch) => ({
 
     removeConcert: (id) => dispatch(removeConcert(id)),
     logOut: () => dispatch(loggedOut()),
-    open: (key) => dispatch(dialogHandler(key))
+    open: (key,value) => {
+
+        console.log(value);
+        dispatch(dialogHandler(key,value))}
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserAccount)

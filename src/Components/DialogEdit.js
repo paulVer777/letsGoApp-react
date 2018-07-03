@@ -10,7 +10,6 @@ import {connect} from 'react-redux'
 import {dialogHandler} from "../state/concerts";
 import {dialogsInputHandler, editConcert} from "../state/concerts";
 
-
 const DialogEdit = (props) => (
     <div>
         <Dialog
@@ -30,6 +29,8 @@ const DialogEdit = (props) => (
                     label="Artist"
                     fullWidth
                     onChange={props.inputHandler}
+                    value={props.objectValues.artist}
+
                 />
                 <TextField
                     autoFocus
@@ -38,6 +39,7 @@ const DialogEdit = (props) => (
                     label="City"
                     fullWidth
                     onChange={props.inputHandler}
+                    value={props.objectValues.city}
                 />
                 <TextField
                     autoFocus
@@ -46,6 +48,7 @@ const DialogEdit = (props) => (
                     label="Date"
                     fullWidth
                     onChange={props.inputHandler}
+                    value={props.objectValues.date}
                 />
                 <TextField
                     autoFocus
@@ -54,6 +57,7 @@ const DialogEdit = (props) => (
                     label="Price for tickets"
                     fullWidth
                     onChange={props.inputHandler}
+                    value={props.objectValues.price}
                 />
                 <TextField
                     autoFocus
@@ -64,6 +68,7 @@ const DialogEdit = (props) => (
                     onChange={props.inputHandler}
                     multiline={true}
                     rows={5}
+                    value={props.objectValues.description}
                 />
             </DialogContent>
             <DialogActions>
@@ -83,12 +88,19 @@ const DialogEdit = (props) => (
 );
 const mapStateToProps = (state) => ({
 
-    opens: state.concerts.dialog
+    opens: state.concerts.dialog,
+    objectValues:state.concerts.value||""
 
 });
 const mapDispatchToProps = (dispatch) => ({
 
-    openOrClose: () => dispatch(dialogHandler()),
+    openOrClose: () => dispatch(dialogHandler("",{
+        artist: "",
+        city: "",
+        date: "",
+        price: "",
+        description: ""
+    })),
     inputHandler: (event) => dispatch(dialogsInputHandler(event.target.value, event.target.name)),
     edit: () => dispatch(editConcert())
 });

@@ -19,7 +19,7 @@ const Concerts = (props) => (
         <div className='concerts__textfilter'>
             <TextField
                 fullWidth={true}
-                placeholder='Find concert by name of artist'
+                placeholder='Artist'
                 onChange={props.filtered}
             />
         </div>

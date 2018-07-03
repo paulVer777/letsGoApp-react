@@ -31,7 +31,7 @@ export const sendConcertToDb = () => (dispatch, getState) => {
     const addConcert=state.addConcert;
 
     if(addConcert.artist && addConcert.city && addConcert.date && addConcert.price && addConcert.description
-    && addConcert.url)
+    )
     {
         database.ref('/Concerts/').push(
             {
@@ -40,7 +40,7 @@ export const sendConcertToDb = () => (dispatch, getState) => {
                 date: state.addConcert.date,
                 price: state.addConcert.price,
                 description: state.addConcert.description,
-                url: state.addConcert.url,
+                url: state.addConcert.url||'https://firebasestorage.googleapis.com/v0/b/letsgoapp-b6547.appspot.com/o/4628207884.jpg?alt=media&token=06317040-3d6e-41a4-b227-81d62a9286c0',
                 id: userUid
             }
         );

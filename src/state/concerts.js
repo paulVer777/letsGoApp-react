@@ -9,7 +9,7 @@ const CLEARSTATE = 'concerts/CLEARSTATE';
 
 const putConcertsToState = (concerts) => ({type: PUTCONCERTSTOSTATE, concerts});
 export const onInputHandler = (txt) => ({type: ONINPUTHANDLER, txt});
-export const dialogHandler = (key) => ({type: DIALOGHANDLER, key});
+export const dialogHandler = (key, value) => ({type: DIALOGHANDLER, key, value});
 export const dialogsInputHandler = (txt, place) => ({type: DIALOGSINPUTHANDLER, txt, place});
 const clearState = () => ({type: CLEARSTATE});
 
@@ -18,26 +18,32 @@ const initialState = {
     filter: "",
     dialog: false,
     edited: "",
-    editConcert: {
+    value: {
         artist: "",
         city: "",
         date: "",
         price: "",
-        description: "",
-    }
+        description: ""
+    },
 };
 export const editConcert = () => (dispatch, getState) => {
     const state = getState();
     const id = state.concerts.edited;
-    const edit = state.concerts.editConcert;
+    const value = state.concerts.value;
 
-    if (edit.artist && edit.city && edit.date && edit.price && edit.description
-    ) {
-        database.ref(`/Concerts/${id}`).update(state.concerts.editConcert);
-        dispatch(clearState());
-        dispatch(dialogHandler())
-    }
-    else alert("Please fill all empty fields")
+    // // if (edit.artist && edit.city && edit.date && edit.price && edit.description
+    // ) {
+    database.ref(`/Concerts/${id}`).update(
+        {
+            artist: value.artist,
+            city: value.city,
+            date: value.date,
+            price: value.price,
+            description: value.description
+        });
+    dispatch(dialogHandler())
+    // }
+    // else alert("Please fill all empty fields")
 
 };
 export const removeConcert = (id) => (dispatch, getState) => {
@@ -66,26 +72,22 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 dialog: !state.dialog,
-                edited: action.key
-            };
-        case DIALOGSINPUTHANDLER:
-            return {
-                ...state,
-                editConcert: {
-                    ...state.editConcert,
-                    [action.place]: action.txt
-                }
-            };
-        case CLEARSTATE:
-            return {
-                ...state,
-                editConcert: {
+                edited: action.key,
+                value: action.value || {
                     artist: "",
                     city: "",
                     date: "",
                     price: "",
-                    description: "",
+                    description: ""
                 }
+            };
+        case DIALOGSINPUTHANDLER:
+            return {
+                ...state,
+                value: {
+                    ...state.value,
+                    [action.place]: action.txt
+                },
             };
         default:
             return state

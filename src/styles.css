@@ -65,3 +65,12 @@ margin: auto;
 
 }
 
+@media screen and (max-width: 450px){
+
+    .addConcert__form{
+        padding: 0;
+
+
+    }
+
+}
