@@ -31,8 +31,7 @@ export const editConcert = () => (dispatch, getState) => {
     const id = state.concerts.edited;
     const value = state.concerts.value;
 
-    // // if (edit.artist && edit.city && edit.date && edit.price && edit.description
-    // ) {
+
     database.ref(`/Concerts/${id}`).update(
         {
             artist: value.artist,
@@ -42,8 +41,7 @@ export const editConcert = () => (dispatch, getState) => {
             description: value.description
         });
     dispatch(dialogHandler())
-    // }
-    // else alert("Please fill all empty fields")
+
 
 };
 export const removeConcert = (id) => (dispatch, getState) => {

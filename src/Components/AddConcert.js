@@ -60,7 +60,7 @@ const AddConcert = (props) => (
                         color='primary'
                 >Upload photo</Button>
                 :
-                null
+                <p className='text-center'>(Optional)</p>
 
         }
         <Button

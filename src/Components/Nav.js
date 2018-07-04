@@ -8,7 +8,7 @@ const Nav = (props) => (
     <div className='nav'>
         <NavLink to={'/'}><Button variant={"contained"} color={"primary"}
         className='mr-3 mt-2'
-        >Events</Button></NavLink>
+        >Concerts</Button></NavLink>
 
         <NavLink to={'/auth'}><Button variant={"contained"} color={"primary"}
         className='mr-3 mt-2'

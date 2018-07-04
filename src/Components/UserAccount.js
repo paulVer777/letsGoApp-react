@@ -11,7 +11,7 @@ import {dialogHandler} from "../state/concerts";
 import Dialog from './DialogEdit'
 import EditIcon from '@material-ui/icons/Edit';
 import Tooltip from '@material-ui/core/Tooltip';
-
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const UserAccount = (props) => (
 
@@ -33,7 +33,7 @@ const UserAccount = (props) => (
 
         <div className='addConcert__form'>
             {
-              props.concerts.filter((value, index) => value.id === props.userUid)
+                props.concerts.filter((value, index) => value.id === props.userUid)
 
                     .map((value, index) =>
 
@@ -57,12 +57,11 @@ const UserAccount = (props) => (
         <Dialog/>
 
         {
-           props.concerts.filter(value => value.id === props.userUid).length===0 ?
+            props.concerts.filter(value => value.id === props.userUid).length === 0 ?
                 <h5 className='text-center'>You don't have any concerts yet.</h5>
                 :
-               null
+                null
         }
-
     </div>
 
 );
