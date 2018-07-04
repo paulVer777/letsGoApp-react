@@ -18,10 +18,7 @@ const DialogEdit = (props) => (
         >
             <DialogTitle id="form-dialog-title">Edit concert</DialogTitle>
             <DialogContent>
-                <DialogContentText>
-                    To subscribe to this website, please enter your email address here. We will send
-                    updates occasionally.
-                </DialogContentText>
+
                 <TextField
                     autoFocus
                     margin="dense"
@@ -76,7 +73,7 @@ const DialogEdit = (props) => (
                     Cancel
                 </Button>
                 <Button onClick={props.edit} color="primary">
-                    Done
+                    Save Changes
                 </Button>
 
             </DialogActions>
@@ -89,12 +86,12 @@ const DialogEdit = (props) => (
 const mapStateToProps = (state) => ({
 
     opens: state.concerts.dialog,
-    objectValues:state.concerts.value||""
+    objectValues: state.concerts.value || ""
 
 });
 const mapDispatchToProps = (dispatch) => ({
 
-    openOrClose: () => dispatch(dialogHandler("",{
+    openOrClose: () => dispatch(dialogHandler("", {
         artist: "",
         city: "",
         date: "",

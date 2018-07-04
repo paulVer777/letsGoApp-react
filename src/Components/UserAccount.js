@@ -33,25 +33,35 @@ const UserAccount = (props) => (
 
         <div className='addConcert__form'>
             {
-                props.concerts.filter((value, index) => value.id === props.userUid)
+              props.concerts.filter((value, index) => value.id === props.userUid)
+
                     .map((value, index) =>
 
                         <MenuItem>{value.artist}
 
                             <div className='d-flex justify-content-end w-100 mr-4'>
-                               <Tooltip title={'Remove'} placement={"left-start"}>
-                                <ListItemIcon>
-                                    <DeleteIcon onClick={() => props.removeConcert(value.key)}/>
-                                </ListItemIcon>
-                               </Tooltip>
+                                <Tooltip title={'Remove'} placement={"left-start"}>
+                                    <ListItemIcon>
+                                        <DeleteIcon onClick={() => props.removeConcert(value.key)}/>
+                                    </ListItemIcon>
+                                </Tooltip>
                                 <Tooltip title={'Edit'} placement={"right-start"}>
-                                <ListItemIcon><EditIcon onClick={() => props.open(value.key,value)}/></ListItemIcon>
+                                    <ListItemIcon><EditIcon
+                                        onClick={() => props.open(value.key, value)}/></ListItemIcon>
                                 </Tooltip>
                             </div>
                         </MenuItem>
-                    )}
+                    )
+            }
         </div>
         <Dialog/>
+
+        {
+           props.concerts.filter(value => value.id === props.userUid).length===0 ?
+                <h5 className='text-center'>You don't have any concerts yet.</h5>
+                :
+               null
+        }
 
     </div>
 
@@ -68,10 +78,11 @@ const mapDispatchToProps = (dispatch) => ({
 
     removeConcert: (id) => dispatch(removeConcert(id)),
     logOut: () => dispatch(loggedOut()),
-    open: (key,value) => {
+    open: (key, value) => {
 
         console.log(value);
-        dispatch(dialogHandler(key,value))}
+        dispatch(dialogHandler(key, value))
+    }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserAccount)

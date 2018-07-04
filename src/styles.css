@@ -37,8 +37,8 @@
 .addConcert__form {
     width: 80%;
     margin: auto;
-    padding: 40px;
     box-sizing: border-box;
+    padding: 0;
 }
 
 a {
@@ -65,12 +65,27 @@ margin: auto;
 
 }
 
-@media screen and (max-width: 450px){
+input[type="file"] {
+    display: none;
+}
 
-    .addConcert__form{
-        padding: 0;
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 8px 12px;
+    cursor: pointer;
+    background-color:#3f50b5;
+    width: 100%;
+    text-align: center;
+    color: white;
+    border-radius:4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    opacity: 0.95;
+}
 
-
-    }
+.custom-file-upload:hover
+{
+    opacity:1;
 
 }

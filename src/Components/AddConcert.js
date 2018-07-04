@@ -44,10 +44,13 @@ const AddConcert = (props) => (
             fullWidth={true}
             className='mb-5'
         />
-        <TextField type='file'
+        <label className="custom-file-upload">
+        <input type='file'
                    onChange={props.takeFile}
-                   fullWidth={true}
-        />
+
+        />ADD PHOTO
+        </label>
+
         {
             props.photo ?
                 <Button onClick={props.send}
@@ -57,7 +60,7 @@ const AddConcert = (props) => (
                         color='primary'
                 >Upload photo</Button>
                 :
-                <p className='text-center'> Choose a photo</p>
+                null
 
         }
         <Button
