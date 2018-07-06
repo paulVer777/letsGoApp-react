@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import Button from '@material-ui/core/Button';
 import {NavLink} from 'react-router-dom'
 
-
 const Nav = (props) => (
     <div className='nav'>
         <NavLink to={'/'}><Button variant={"contained"} color={"primary"}

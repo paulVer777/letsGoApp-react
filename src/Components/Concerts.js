@@ -65,6 +65,18 @@ const Concerts = (props) => (
                         </Card>
                     )
             }
+            {
+                props.concerts.filter(value =>
+                    value.artist.substr(0, props.filteredValue.length)
+                        .toLowerCase() === props.filteredValue.toLowerCase()).length===0 ?
+                    <h3 className='mt-5'>Nothing found</h3>
+                    :
+                    null
+
+
+            }
+
+
         </div>
     </div>
 );
